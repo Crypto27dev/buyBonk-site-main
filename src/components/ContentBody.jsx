@@ -56,8 +56,6 @@ const ContentBody = () => {
                 return;
             } else {
                 account = getAccount().address;
-                console.log("account is:", account)
-                console.log("address is:", address)
                 await showBalance();
             }
         } catch (error) {
