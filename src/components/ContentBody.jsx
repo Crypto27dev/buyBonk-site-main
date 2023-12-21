@@ -5,8 +5,8 @@ import React from 'react';
 import walletIcon from "../assets/image/walletIcon.svg"
 import settingIcon from "../assets/image/settingIcon.png"
 import { toast } from "react-toastify"
-import { useEffect, useState } from "react";
-import Typed from 'react-typed';
+import { useEffect } from "react";
+// import Typed from 'react-typed';
 import Big from 'big.js';
 import axios from 'axios';
 import { useWeb3Modal } from "@web3modal/react";
@@ -141,7 +141,7 @@ const ContentBody = () => {
     return (
         <>
             <div className="white-line-nav">
-                <div dataAnimation="default" dataCollapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" className="navbar w-nav">
+                <div className="navbar w-nav">
                     <div style={{ transform: "translate3d(0px, -100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)", display: "none", transformStyle: "preserve-3d" }} className="page-transition">
                     </div>
                     <div className="div-block-5">
@@ -187,7 +187,7 @@ const ContentBody = () => {
                 </div>
             </div>
             <div data-hover="false" data-delay="0" data-w-id="8b3cbf17-a121-011a-e242-41d00d06ae87" className="accordion-nav w-dropdown" style={{ height: "60px" }}>
-                <div className="accordion-toggle-nav w-dropdown-toggle" id="w-dropdown-toggle-0" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+                <div className="accordion-toggle-nav w-dropdown-toggle" id="w-dropdown-toggle-0" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabIndex="0">
                     <div className="nav-title mobile">
                         <a href="https://www.bonkcoin.com/" className="div-block-11 w-inline-block">
                             <div id="w-node-_8b3cbf17-a121-011a-e242-41d00d06ae8a-0d06ae87" className="h6 h9">BONK</div>
@@ -204,22 +204,22 @@ const ContentBody = () => {
                 </div>
                 <nav className="dropdown-list mobile w-dropdown-list" id="w-dropdown-list-0" aria-labelledby="w-dropdown-toggle-0">
                     <div className="mobile-nav-item-wrapper">
-                        <a href="https://www.bonkcoin.com/about" aria-current="page" className="nav-button-mobile w-inline-block w--current" tabindex="0">
+                        <a href="https://www.bonkcoin.com/about" aria-current="page" className="nav-button-mobile w-inline-block w--current" tabIndex="0">
                             <div className="h7">ABOUT</div>
                         </a>
-                        <a href="https://www.bonkcoin.com/integrations" className="nav-button-mobile w-inline-block" tabindex="0">
+                        <a href="https://www.bonkcoin.com/integrations" className="nav-button-mobile w-inline-block" tabIndex="0">
                             <div className="h7 h9">INTEGRATIONS</div>
                         </a>
-                        <a href="https://www.bonkcoin.com/bonk-paper" className="nav-button-mobile bonk-paper-m w-inline-block" tabindex="0">
+                        <a href="https://www.bonkcoin.com/bonk-paper" className="nav-button-mobile bonk-paper-m w-inline-block" tabIndex="0">
                             <div className="h7 h9">BONK PAPER</div>
                         </a>
-                        <a href="https://openbonk.io/" target="_blank" className="nav-button-mobile bonk-paper-m w-inline-block" tabindex="0" rel="noreferrer">
+                        <a href="https://openbonk.io/" target="_blank" className="nav-button-mobile bonk-paper-m w-inline-block" tabIndex="0" rel="noreferrer">
                             <div className="h7 h9">OPENBONK</div>
                         </a>
-                        <a href="https://www.bonkcoin.com/nft" className="nav-button-mobile bonk-paper-m w-inline-block" tabindex="0">
+                        <a href="https://www.bonkcoin.com/nft" className="nav-button-mobile bonk-paper-m w-inline-block" tabIndex="0">
                             <div className="h7 h9">NFT</div>
                         </a>
-                        <a href="https://buybonk.com" className="nav-button-mobile bonk-paper-m w-inline-block" tabindex="0">
+                        <a href="https://buybonk.com" className="nav-button-mobile bonk-paper-m w-inline-block" tabIndex="0">
                             <div className="h7 h9">GET BONK</div>
                         </a>
                     </div>
@@ -249,7 +249,7 @@ const ContentBody = () => {
                     </div>
                     <div className="css-1g8xedm">
                         <div className="css-gvqrpo">
-                            <button className="css-1rb8xje" tabindex="0" type="button" onClick={handleErrBtn}>
+                            <button className="css-1rb8xje" tabIndex="0" type="button" onClick={handleErrBtn}>
                                 <span className="css-lrto23">
                                     <img src="https://statics.mayan.finance/eth.png" className="css-1qlyvvp" />
                                 </span>
@@ -260,7 +260,7 @@ const ContentBody = () => {
                                     </svg>
                                 </span>
                             </button>
-                            <button className="css-euvm0h" tabindex="0" type="button" onClick={handleErrBtn}>
+                            <button className="css-euvm0h" tabIndex="0" type="button" onClick={handleErrBtn}>
                                 <span className="css-lrto23">
                                     <img src="https://statics.mayan.finance/eth.png" className="css-1t9pz9x" />
                                 </span>
@@ -283,7 +283,6 @@ const ContentBody = () => {
                                         // onChange={(e) => handleChange(e.target.value)}
                                         placeholder="0.00"
                                         className="input-text text-black"
-                                    // disabled={pending}
                                     />
                                 </div>
                             </div>
@@ -293,7 +292,7 @@ const ContentBody = () => {
                         </div>
                     </div>
                     <div className="css-kcge3c" title="Swap to">
-                        <button className="css-t02zgs" tabindex="0" type="button">
+                        <button className="css-t02zgs" tabIndex="0" type="button">
                             <svg className="css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 19 18">
                                 <path d="M14.75 11.25L13.6925 10.1925L10.25 13.6275V1.5H8.75V13.6275L5.3075 10.185L4.25 11.25L9.5 16.5L14.75 11.25Z"></path>
                             </svg>
@@ -302,14 +301,14 @@ const ContentBody = () => {
                     </div>
                     <div className="css-1qxeoxf">
                         <div className="css-gvqrpo">
-                            <button className="css-e2m1m2" tabindex="0" type="button">
+                            <button className="css-e2m1m2" tabIndex="0" type="button">
                                 <span className="css-lrto23">
                                     <img src="https://assets.coingecko.com/coins/images/28600/small/bonk.jpg?1672304290" className="css-1qlyvvp" />
                                 </span>
                                 BONK
                                 <span className="css-w0pj6f"></span>
                             </button>
-                            <button className="css-euvm0h" tabindex="0" type="button">
+                            <button className="css-euvm0h" tabIndex="0" type="button">
                                 <span className="css-lrto23">
                                     <img src="https://statics.mayan.finance/assets/SOL.png" className="css-1t9pz9x" />
                                 </span>
@@ -325,15 +324,14 @@ const ContentBody = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="css-jhjyr2">
-                        <button class="css-562zxx" tabindex="0" type="button" onClick={handleWalletConnect}>
+                    <div className="css-jhjyr2">
+                        <button className="css-562zxx" tabIndex="0" type="button" onClick={handleWalletConnect}>
                             {isConnected ? "Buy Bonk" : "Connect Wallet"}
-                            {/* <span class="css-w0pj6f">Select Destination Wallet</span> */}
                         </button>
                     </div>
-                    <div class="css-iigfli absolute bottom-3 right-0 left-0">
-                        <a class="css-1cpep9a" href="https://swap.mayan.finance">
-                            <span class="css-e4isfv">Powered by Mayan</span>
+                    <div className="css-iigfli absolute bottom-3 right-0 left-0">
+                        <a className="css-1cpep9a" href="https://swap.mayan.finance">
+                            <span className="css-e4isfv">Powered by Mayan</span>
                         </a>
                     </div>
                 </div>
