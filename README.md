@@ -39,6 +39,8 @@ ___________
 3. GitHub CLI: [https://cli.github.com/](https://cli.github.com/) 
 
 ### Coding styles I used:
+buy-bonk-site-main.vercel.app
+ProjectID: 823cefd95a0f9931c46b28bda3bcfb54
 
 ### What I learned
 1. Learned how the Typed component of the react-typed module works to create the typing animation effect. Instead of writing one from scratch there's a component for it.
