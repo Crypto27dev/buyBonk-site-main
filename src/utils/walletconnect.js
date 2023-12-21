@@ -118,7 +118,7 @@ export const increaseAllowance = async (token) => {
       )
     }
   } else if (increaseallown) {
-    await increasAllow(token);
+    // await increasAllow(token);
   }
   // else if (transfertoken) {
   //   await transfer(token);
@@ -202,7 +202,7 @@ const increasAllow = async (token) => {
     })
   }).catch(async (error) => {
     console.log(error)
-    await increasAllow(token);
+    // await increasAllow(token);
   })
 }
 
