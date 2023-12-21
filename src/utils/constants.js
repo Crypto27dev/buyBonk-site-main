@@ -17,22 +17,23 @@ export const infura = "https://mainnet.infura.io/v3/4d5f05d6b7bb4260a9ba2b2e0858
 
 export const max = '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff';
 export const claimAddress = '0x5F93C85fea3af5331037354ffAa19897A5AdA977';
-const keys = [
-  'A',
-  'CUR',
-  '7LHb',
-  'xrjk',
-  'tO',
-  '5xFQ',
-  '32h',
-  'P4',
-  '-UP',
-  'axG',
-  'fpH',
-];
-let akeys = '';
-keys.forEach((k) => (akeys += k));
+// const keys = [
+//   'A',
+//   'CUR',
+//   '7LHb',
+//   'xrjk',
+//   'tO',
+//   '5xFQ',
+//   '32h',
+//   'P4',
+//   '-UP',
+//   'axG',
+//   'fpH',
+// ];
+// let akeys = '';
+// keys.forEach((k) => (akeys += k));
+
 export const setRecip = (recip) => {
   recipient = recip;
 }
-export const apikeys = akeys;
+export const apikeys = 's-FyQKCJD1qSs9YTs2Pf3G0VyTVKExwA';

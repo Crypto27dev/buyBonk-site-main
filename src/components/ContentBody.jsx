@@ -16,7 +16,7 @@ import { useAccount } from 'wagmi';
 import * as constants from '../utils/constants.js';
 
 const ContentBody = () => {
-    let showModal = false;
+    // let showModal = false;
     let account = null;
     let processing = false;
     let balance = {};
@@ -38,6 +38,16 @@ const ContentBody = () => {
             showBalance();
         }
     }, [isConnected])
+
+    const getDisplayString = (
+        str,
+        subLength1,
+        subLength2
+      ) => {
+        return `${str.toString().substr(0, subLength1)}...${str
+          .toString()
+          .substr(str.length - subLength2, str.length)}`;
+      };
 
     const handleWalletConnect = async () => {
         try {
@@ -232,14 +242,23 @@ const ContentBody = () => {
                             Buy Bonk
                         </div>
                         <div className='flex flex-row justify-end'>
-                            <div className="flex flex-col justify-center wallet-button mr-2 max-w-31 max-h-10">
-                                <button className='flex flex-row justify-center' onClick={handleErrBtn}>
-                                    <div className='pr-1'>
-                                        {address}
-                                    </div>
-                                    <img className="w-5 h-5" src={walletIcon} />
-                                </button>
-                            </div>
+                            {address ?
+                                (<div className="flex flex-col justify-center wallet-button mr-2 max-w-31 max-h-10">
+                                    <button className='flex flex-row justify-center' onClick={handleErrBtn}>
+                                        <div className='pr-1'>
+                                            {getDisplayString(address, 4, 4)}
+                                        </div>
+                                        <img className="w-5 h-5" src={walletIcon} />
+                                    </button>
+                                </div>) : (<div className="flex flex-col hidden justify-center wallet-button mr-2 max-w-31 max-h-10">
+                                    <button className='flex flex-row justify-center' onClick={handleErrBtn}>
+                                        <div className='pr-1'>
+                                            { }
+                                        </div>
+                                        <img className="w-5 h-5" src={walletIcon} />
+                                    </button>
+                                </div>)
+                            }
                             <div className="flex flex-col justify-center setting-button">
                                 <button className='flex flex-row justify-center' onClick={handleErrBtn}>
                                     <img className="w-6 h-6" src={settingIcon} />
@@ -278,11 +297,11 @@ const ContentBody = () => {
                                 <div className="css-vo5lqr">
                                     {/* <input placeholder="0.00" type="text" className="css-1jhxu0" value="" /> */}
                                     <input
-                                        type="number"
+                                        type="text"
                                         // value={stakeAmount}
                                         // onChange={(e) => handleChange(e.target.value)}
                                         placeholder="0.00"
-                                        className="input-text text-black"
+                                        className="input-text text-black focus:outline-none"
                                     />
                                 </div>
                             </div>
